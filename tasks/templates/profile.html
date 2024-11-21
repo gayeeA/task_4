@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Group Identification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: url("https://lh7-us.googleusercontent.com/liD0B-xzZOuSaUtaYbD7OG6yngdil7TQhKEiU2xlhpaYyP15Aofk0sCut4nxtKcSF_dHbQfJVMKvS3UDV0qqRSkw_J91X74Irf8lmB0EWdSX8LIFHanjWAjWIVtdaN_B1AysR2WpuXquUAfiNdBge08")
+          no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+
+      section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        margin-top: 20px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Blood Group Identification</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="abd">Upload Blood Sample Image:</label><br />
+        <input type="file" name="abd" id="abd" accept="image/*" /><br /><br />
+        <button type="submit">Analyze</button>
+      </form>
+
+      {% if img %}
+      <hr />
+      <h2>Original Image:</h2>
+      <img src="{{ img }}" alt="Original Image" />
+      {% endif %} {% if mor_img %}
+      <hr />
+      <h2>Morphological Image:</h2>
+      <img src="{{ mor_img }}" alt="Processed Image" />
+      {% endif %} {% if obj %}
+      <hr />
+      <h2>Detected Blood Group: {{ obj }}</h2>
+      {% endif %}
+    </section>
+  </body>
+</html>

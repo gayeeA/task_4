@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Blood Group Identification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("https://t3.ftcdn.net/jpg/06/24/47/10/360_F_624471053_oSdTTv7Eyej2oHCxsLsowRkdDI72GUzC.jpg")
+          no-repeat center center/cover;
+        color: white;
+      }
+
+      .container {
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: white;
+        text-shadow: 2px 2px 5px black;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: white;
+      }
+
+      h3 {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px black;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn.login {
+        background-color: #007bff;
+      }
+
+      .btn.login:hover {
+        background-color: #0056b3;
+      }
+
+      .btn.signup {
+        background-color: #ff4500;
+      }
+
+      .btn.signup:hover {
+        background-color: #c23300;
+      }
+
+      .info-section {
+        margin-top: 50px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+
+      .info-section h3 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blood Group Identification</h1>
+      <h2>Introduction</h2>
+      <p>
+        This web app is used to find the blood group by uploading the blood cell
+        image, and it will help to get the output as which blood group it is.
+      </p>
+
+      <div class="info-section">
+        <h3>Blood Group Types</h3>
+        <ul>
+          <li>O+</li>
+          <li>O-</li>
+          <li>A+</li>
+          <li>A-</li>
+          <li>B+</li>
+          <li>B-</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h3>How to Use the Web App</h3>
+        <p>
+          1. Login with your registered credentials<br />
+          2. Upload two types of blood cell images:
+        </p>
+        <ul>
+          <li>ABO blood cell image</li>
+          <li>Rh blood cell image</li>
+        </ul>
+      </div>
+
+      <div class="button-group">
+        <button class="btn login" onclick="location.href='login/'">
+          Login
+        </button>
+        <button class="btn signup" onclick="location.href='signup/'">
+          Register
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

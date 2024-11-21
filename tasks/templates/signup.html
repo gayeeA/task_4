@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      /* Main container for the form and image */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        height: 100vh;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+      }
+
+      /* Styling for the image section */
+      .image-container {
+        width: 50%;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Styling for the form section */
+      form {
+        width: 40%;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 2px solid #ccc;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: block;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        font-size: 1em;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #28a745;
+        outline: none;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      .register-link {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        color: #007bff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .register-link:hover {
+        color: #0056b3;
+      }
+
+      /* Body styling */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Image container -->
+      <div class="image-container">
+        <img src="https://img.freepik.com/premium-vector/blood-test-laboratory-analysis-vector-isometric-illustration-medical-lab-equipment-blood-type-gro_453374-447.jpg?w=1060
+
+
+" alt="Blood test illustration" />
+      </div>
+
+      <!-- Form container -->
+      <form method="post">
+        <h1>Register to get more details about the project</h1>
+        <hr />
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br />
+          {{ field }}
+          {% for error in field.errors %}
+          <p style="color:red;">{{ error }}</p>
+          {% endfor %}
+        </p>
+        {% endfor %}
+        <button type="submit" class="btn signup">Register</button>
+        <a href="/login" class="register-link">Already registered? Click here</a>
+        <hr />
+      </form>
+    </div>
+  </body>
+</html>

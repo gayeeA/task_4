@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      /* Container to hold the image and form side by side */
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 50px;
+        height: 100vh;
+        background-color: #e0e0e0; /* Light grey background */
+        box-sizing: border-box;
+      }
+
+      /* Styling for the image on the left */
+      .image-container {
+        width: 45%;
+        text-align: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        border-radius: 15px; /* Rounded corners for image */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+      }
+
+      /* Styling for the login form */
+      .form-container {
+        width: 40%;
+        background-color: white; /* White background for form */
+        padding: 30px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Shadow for form */
+        transition: box-shadow 0.3s ease;
+      }
+
+      .form-container:hover {
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #333; /* Darker text */
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* General form styling */
+      form p {
+        margin-bottom: 20px;
+      }
+
+      form label {
+        display: block;
+        font-weight: 600;
+        color: #555; /* Grey label color */
+        margin-bottom: 8px;
+      }
+
+      form input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        font-size: 1em;
+        transition: border-color 0.3s ease;
+      }
+
+      form input:focus {
+        border-color: #007bff; /* Focused border color */
+        outline: none;
+      }
+
+      /* Button Styling */
+      .btn {
+        width: 100%;
+        text-decoration: none;
+        padding: 15px 0;
+        font-size: 1.1em;
+        border-radius: 8px;
+        color: white;
+        background-color: #007bff; /* Blue button */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px); /* Slight lift on hover */
+      }
+
+      .btn:active {
+        transform: translateY(1px); /* Click effect */
+      }
+
+      /* New register link */
+      .register-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .register-link:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+
+      /* General body styling */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* Very light grey */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Image container -->
+      <div class="image-container">
+        <img
+          src="https://img.freepik.com/premium-vector/blood-test-laboratory-analysis-vector-isometric-illustration-medical-lab-equipment-blood-type-gro_453374-447.jpg?w=1060"
+          alt="Blood test illustration"
+        />
+      </div>
+
+      <!-- Form container -->
+      <div class="form-container">
+        <h2>Login</h2>
+        {{ msg }}
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <!-- Django will render the form fields here -->
+          <button type="submit" class="btn login">Login</button>
+        </form>
+
+        <a href="/signup" class="register-link">New register</a>
+      </div>
+    </div>
+  </body>
+</html>
