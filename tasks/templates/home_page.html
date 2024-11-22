@@ -10,15 +10,16 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background: url("https://t3.ftcdn.net/jpg/06/24/47/10/360_F_624471053_oSdTTv7Eyej2oHCxsLsowRkdDI72GUzC.jpg")
+        background: url("https://i.pinimg.com/736x/f5/c4/8d/f5c48d627c64cec9a36eb204cf8dbd56.jpg")
           no-repeat center center/cover;
         color: white;
       }
-
       .container {
-        padding: 40px;
+        padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
+        margin-left: 10px;
+        margin-top: 5px;
       }
 
       h1 {
@@ -26,6 +27,7 @@
         margin-bottom: 10px;
         color: white;
         text-shadow: 2px 2px 5px black;
+        margin-top: -5px;
       }
 
       h2 {
@@ -47,10 +49,32 @@
         text-shadow: 1px 1px 3px black;
       }
 
-      .button-group {
+      header {
+        background-color: rgba(255, 204, 203, 0.5);
+        padding: 10px 20px;
+        border-radius: 10px;
         display: flex;
-        gap: 10px;
-        margin-top: 20px;
+        align-items: center;
+        justify-content: space-between; /* Space between website name and nav links */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .site-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: black;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px; /* Space between nav items */
+      }
+
+      nav ul li {
+        display: inline;
       }
 
       .btn {
@@ -79,11 +103,11 @@
       .btn.signup:hover {
         background-color: #c23300;
       }
-
       .info-section {
         margin-top: 50px;
         background: rgba(0, 0, 0, 0.6);
-        padding: 30px;
+        padding: 20px;
+        width: 30%;
         border-radius: 10px;
       }
 
@@ -98,6 +122,23 @@
     </style>
   </head>
   <body>
+    <header>
+      <div class="site-title">Blood Group Identification</div>
+      <nav>
+        <ul class="button-group">
+          <li>
+            <button class="btn login" onclick="location.href='login/'">
+              Login
+            </button>
+          </li>
+          <li>
+            <button class="btn signup" onclick="location.href='signup/'">
+              Register
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="container">
       <h1>Blood Group Identification</h1>
       <h2>Introduction</h2>
@@ -109,12 +150,11 @@
       <div class="info-section">
         <h3>Blood Group Types</h3>
         <ul>
-          <li>O+</li>
-          <li>O-</li>
-          <li>A+</li>
-          <li>A-</li>
-          <li>B+</li>
-          <li>B-</li>
+          <li>A</li>
+          <li>B</li>
+          <li>AB</li>
+          <li>O</li>
+          <li>ACCORDING FEW MORE LIKE POSITIVE AND NEGATIVE</li>
         </ul>
       </div>
 
@@ -122,21 +162,11 @@
         <h3>How to Use the Web App</h3>
         <p>
           1. Login with your registered credentials<br />
-          2. Upload two types of blood cell images:
+          2. Upload blood cell images:
         </p>
         <ul>
           <li>ABO blood cell image</li>
-          <li>Rh blood cell image</li>
         </ul>
-      </div>
-
-      <div class="button-group">
-        <button class="btn login" onclick="location.href='login/'">
-          Login
-        </button>
-        <button class="btn signup" onclick="location.href='signup/'">
-          Register
-        </button>
       </div>
     </div>
   </body>
