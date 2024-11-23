@@ -1,17 +1,29 @@
-##Blood Group Identification Web App
-This web application uses image processing techniques to identify a person's blood group based on an uploaded ABD test cell image. The application leverages OpenCV for preprocessing and analysis of the image.
+# Blood Group Identification Web App
 
-##Features
+This web application uses image processing techniques 
+
+to identify a person's blood group based on an uploaded ABD test cell image. 
+
+The application leverages OpenCV for preprocessing and analysis of the image.
+
+## Features
 Upload an image of an ABD test cell.
+
 Processes the uploaded image using morphological operations.
+
 Detects the blood group (A, B, AB, or O) and the Rh factor (Positive or Negative).
+
 Displays the original and processed images along with the detected blood group on the frontend.
 
-##Technologies Used
+## Technologies Used
 Backend: Python with Django Framework
+
 Image Processing: OpenCV
+
 Frontend: HTML, CSS, Django Templates
-Installation Instructions
+
+## Installation Instructions
+
 Clone the Repository
 
 git clone <repository-url>
@@ -22,7 +34,7 @@ python -m venv env
 source env/bin/activate # Linux/macOS
 env\Scripts\activate # Windows
 
-Install Dependencies
+## Install Dependencies
 
 pip install -r requirements.txt
 
@@ -57,8 +69,8 @@ How It Works
 5. Results Display:
    The original image, processed image, and detected blood group are displayed on the frontend.
 
-##Code Overview
-##Backend
+# Code Overview
+## Backend
 The logic is implemented in the views.py file:
 
 -->Image Preprocessing:
@@ -68,11 +80,11 @@ Structuring element (ellipse) is used for morphological opening and closing.
 -->Blood Group Determination:
 Agglutination in specific regions indicates the blood group and Rh factor.
 
-##Frontend
+## Frontend
 A simple HTML form for uploading images.
 Displays the original and processed images along with the detected blood group.
 
-###Usage
+# Usage
 
 1. Navigate to the application in your browser.
 2. Upload an ABD test cell image via the form.
@@ -82,22 +94,33 @@ Displays the original and processed images along with the detected blood group.
    Processed (morphological) image
    Detected blood group and Rh factor
 
-##File Structure
+## File Structure
 
 project/
+
 ├── app_name/
+
 │ ├── migrations/
+
 │ ├── static/
+
 │ ├── templates/
+
 │ │ └── profile.html
+
 │ ├── views.py
+
 │ ├── models.py
+
 │ └── urls.py
+
 ├── manage.py
+
 ├── requirements.txt
+
 └── README.md
 
-##Requirements
+## Requirements
 Python 3.x
 Django
 OpenCV
@@ -108,9 +131,9 @@ pip install -r requirements.txt
 
 ABOUT THE PROFILE PAGE LOGIC :
 
-if(request.method=="POST"):
-if(request.FILES.get('abd')):
-img_name = request.FILES['abd']
+      if(request.method=="POST"):
+      if(request.FILES.get('abd')):
+      img_name = request.FILES['abd']
 
             #create a variable for FileSystem
             fs = FileSystemStorage()
