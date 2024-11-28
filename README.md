@@ -47,7 +47,7 @@ python manage.py runserver
 Access the Application Open a browser and navigate to:
 http://127.0.0.1:8000/
 
-How It Works
+### How It Works
 
 1. Image Upload:
    Users upload an ABD test cell image through the provided form.
@@ -73,11 +73,11 @@ How It Works
 ## Backend
 The logic is implemented in the views.py file:
 
--->Image Preprocessing:
+> Image Preprocessing:
 Grayscale conversion, Gaussian blur, histogram equalization, and thresholding.
--->Morphological Operations:
+> >Morphological Operations:
 Structuring element (ellipse) is used for morphological opening and closing.
--->Blood Group Determination:
+> Blood Group Determination:
 Agglutination in specific regions indicates the blood group and Rh factor.
 
 ## Frontend
@@ -122,12 +122,32 @@ project/
 
 ## Requirements
 Python 3.x
+
 Django
+
 OpenCV
+
 NumPy
 
 Install these using:
 pip install -r requirements.txt
+
+## SCREENSHOTS 
+### HOME PAGE
+![image](https://github.com/user-attachments/assets/467ac829-0f7a-4d38-b164-c80fb107886e)
+
+### LOGIN PAGE :
+![image](https://github.com/user-attachments/assets/a3403fe0-c723-45b3-a90c-4491212249e4)
+
+### REGISTRATION PAGE :
+![image](https://github.com/user-attachments/assets/5baa2973-5a2a-4a25-80fe-0a39d093a8bc)
+
+### PROFILE PAGE :
+![image](https://github.com/user-attachments/assets/8f50b3bb-301e-45e6-b6c4-429f2bc788be)
+
+### INPUT AND OUTPUT:
+![image](https://github.com/user-attachments/assets/663fd878-ff5e-429d-bf5b-1fe769a00b98)
+
 
 ABOUT THE PROFILE PAGE LOGIC :
 
@@ -217,3 +237,5 @@ ABOUT THE PROFILE PAGE LOGIC :
 
 
             return render(request,'profile.html',{'img':img_url,'mor_img':mor_img_url,'obj':obj})
+            
+   ```
