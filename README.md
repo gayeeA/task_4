@@ -6,6 +6,11 @@ to identify a person's blood group based on an uploaded ABD test cell image.
 
 The application leverages OpenCV for preprocessing and analysis of the image.
 
+# POWERPOINT PRESENTAION :
+[Blood Group Identification  (1).pdf](https://github.com/user-attachments/files/17948741/Blood.Group.Identification.1.pdf)
+
+[Blood Group Identification.pptx](https://github.com/user-attachments/files/17948829/Blood.Group.Identification.pptx)
+
 ## Features
 Upload an image of an ABD test cell.
 
@@ -147,95 +152,3 @@ pip install -r requirements.txt
 
 ### INPUT AND OUTPUT:
 ![image](https://github.com/user-attachments/assets/663fd878-ff5e-429d-bf5b-1fe769a00b98)
-
-
-ABOUT THE PROFILE PAGE LOGIC :
-
-      if(request.method=="POST"):
-      if(request.FILES.get('abd')):
-      img_name = request.FILES['abd']
-
-            #create a variable for FileSystem
-            fs = FileSystemStorage()
-            # need to save the image to the files
-            filename = fs.save(img_name.name,img_name)
-            #create the url
-            img_url = fs.url(filename)
-            # we need to find the path location
-            # path() -> which is used to return the exact full path of our implementation
-            img_path = fs.path(filename)
-            # read the image
-            img = cv2.imread(img_path)
-
-            #convert it into grayscale
-            gray_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-            # filename = fs.save('gray.jpg',gray_img)
-            # img_url = fs.url(filename)
-
-            #apply gaussian blue to reduce the noise in the images
-            blur_img = cv2.GaussianBlur(gray_img,(5,5),0)
-            # cv2.imshow('gaussian',blur_img)
-            #to enchance the contrast of the images
-            enhance_img = cv2.equalizeHist(blur_img)
-
-            #threshold calculation
-            var, bin_img = cv2.threshold(enhance_img,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-
-            #main imp step is of follows
-            #morphological operations
-            # s1 - kernel implementation
-            kernel_imp = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
-            # convert the threshold image intp morphological structured image
-            bin_img = cv2.morphologyEx(bin_img,cv2.MORPH_OPEN,kernel_imp)
-            bin_img = cv2.morphologyEx(bin_img,cv2.MORPH_CLOSE,kernel_imp)
-
-            hei,wid = bin_img.shape
-            mid_wid = wid//3
-
-            region_A = bin_img[0:mid_wid]
-            region_B = bin_img[mid_wid:2*mid_wid]
-            region_D = bin_img[2*mid_wid:]
-
-            # calculate the default formula for our blood group. that is agglutination
-            def cal_agg(region):
-                num_labels,labels,stats,var = cv2.connectedComponentsWithStats(region,connectivity=8)
-                return num_labels-1
-
-            num_region_A = cal_agg(region_A)
-            num_region_B = cal_agg(region_B)
-            num_region_D = cal_agg(region_D)
-
-            print(num_region_A,num_region_B,num_region_D)
-
-            obj=""
-
-            '''
-            Task for the day:
-            1.
-            if(A>0 && B==0)
-                obj = A
-            if(A==0 && B>0)
-                obj = B
-            if(A>0 && B>0)
-                obj = AB
-            if(A==0 && B==0)
-                obj = O
-            otherwise, blood type = unknown
-
-            2.
-            if num_region_D is greater than 0, then the blood is of positive type
-                obj+='Positive'
-            if num_region_D is less than or equal 0, then the blood is of negative type
-                obj+='Negative'
-            '''
-
-            #convert the morphological bin_img into base64 img
-            var, img = cv2.imencode('.jpg',bin_img)
-            mor_img = base64.b64encode(img).decode('utf-8')
-            mor_img_url = f"data:image/jpeg;base64,{mor_img}"
-
-
-
-            return render(request,'profile.html',{'img':img_url,'mor_img':mor_img_url,'obj':obj})
-            
-   ```
